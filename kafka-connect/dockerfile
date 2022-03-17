@@ -1,0 +1,8 @@
+FROM docker.io/bitnami/kafka:3.1.0-debian-10-r31
+COPY config/. /opt/bitnami/kafka/config/
+RUN ls /opt/bitnami/kafka/config/
+RUN cat /opt/bitnami/kafka/config/connect-distributed.properties
+RUN mkdir /opt/bitnami/kafka/connect-lib
+COPY libs/. /opt/bitnami/kafka/connect-lib/
+RUN ls /opt/bitnami/kafka/connect-lib/
+CMD /opt/bitnami/kafka/bin/connect-distributed.sh /opt/bitnami/kafka/config/connect-distributed.properties
