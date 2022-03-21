@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-connect-deploy
+  labels:
+    run: yuweichou-kafka-client
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: yuweichou-kafka-client
+  template:
+    metadata:
+      labels:
+        run: yuweichou-kafka-client
+    spec:
+      containers:
+        - name: kafka-connect
+          image: demoyuw/kafka-connect
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8083
