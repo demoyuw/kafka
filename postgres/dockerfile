@@ -1,0 +1,2 @@
+FROM postgres:13-buster
+COPY postgresql.conf /etc/postgresql/
