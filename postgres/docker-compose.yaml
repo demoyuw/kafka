@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  db:
+    build: db/.
+    ports: 
+      - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=IIIdevops123!
+      - POSTGRES_DB=db
+    volumes:
+      - ./pg-data:/var/lib/postgresql/data
+    

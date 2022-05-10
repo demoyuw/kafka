@@ -1,4 +1,0 @@
-FROM postgres
-COPY postgresql.conf /var/lib/postgresql/data/
-RUN ls -al /var/lib/postgresql/data/
-RUN cat /var/lib/postgresql/data/postgresql
